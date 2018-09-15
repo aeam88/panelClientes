@@ -41,4 +41,14 @@ export class ClientDetailsComponent implements OnInit {
     });
   }
 
+  onDeleteClick() {
+    if(confirm('Esta seguro?')) {
+      this,this.clientService.deleteClient(this.client);
+      this.flashMessage.show('Cliente elimminado', {
+        cssClass: 'alert-success', timeout: 4000
+      });
+      this.router.navigate(['/']);
+    }
+  }  
+
 }
